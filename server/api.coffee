@@ -22,6 +22,7 @@ eventTypeLookup =
 
 
 exports.referenceData = (req, res) ->
+	res.type 'json'
 	res.json 
 		races: raceLookup
 		sexes: sexLookup
@@ -57,4 +58,5 @@ exports.incidencesByYear = (req, res) ->
 
 		data[eventType] = sexObj
 	
+	res.type 'json'
 	res.json data

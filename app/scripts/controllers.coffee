@@ -15,16 +15,19 @@ app.controller 'AppController', ($scope, $location, $anchorScroll, ReferenceServ
 		$scope.app.referenceData = response
 
 app.controller 'MainController', ($scope, $filter, $log, CDCService) ->
+	
+
+	$scope.updateData = () ->
+		CDCService.getData($scope.cdc?.year).then (response) ->
+			$scope.cdc.data = response
+
+	# initial values
 	$scope.cdc = 
 		sex: 'both'
 		year: '2010'
 		race: 'all'
 		eventType: 'i'
-	$scope.updateData = () ->
-		$log.debug 'updating CDC Data'
-		CDCService.getData($scope.cdc?.year).then (response) ->
-			_.extend $scope.cdc.data = response
-			$log.debug '$scope.cdc', $scope.cdc
+
 
 	$scope.updateData()
 	
