@@ -1,18 +1,45 @@
-# Brunch with Edge Benedict
+# CDC Cancer Statistics with D3 and Angular
 
-Brunch skeleton with AngularJS 1.2.0-rc-2, jQuery 2.0.3, Bootstrap 3.0, and Sling UI 0.1.2
+This is a small module that runs it's own API server. The data set is a cleaned and slimmed down version of the *BYSITE.TXT* found in the [USCS\_1999\_2010\_ASCII.zip](http://www.cdc.gov/cancer/npcr/uscs/USCS_1999_2010_ASCII.zip) file from the CDC site.
 
-## Getting started
-* Install [Brunch](http://brunch.io): `npm install -g brunch`.
-* Install Brunch plugins: `npm install`.
-* Install [Bower](http://bower.io) components: `bower install`
-* Watch the project with continuous rebuild by
-`brunch watch --server`. This will also launch HTTP server.
-* Or build the minified project with `brunch build --optimize`.
+##Demo Site
+###http://cdc.codevinsky.com
 
-Open the `_public/` dir to see the result.
+## Install Locally
+####Requirements:
 
-* Write your code in `app` dir.
-* Put static files that should be copied (index.html etc) to `app/assets`.
-* Manage dependencies with [Bower](http://bower.io) or simply put
-  third-party styles & scripts in `vendor` dir.
+1. Node
+2. Brunch 
+
+		npm install -g brunch
+
+3. Bower
+
+		npm install -g bower
+
+#### Steps:
+
+1. Clone the repo
+
+		$ git clone http://github.com/codevinsky/cdc.git
+		
+2. Install node modules
+
+		$ npm install
+
+3. Install bower components
+
+		$ bower install
+
+4. Brunch build and run server
+
+		$ brunch w
+
+5. Open browser to [http://localhost:3333/](http://localhost:3333/)
+
+
+
+
+
+
+
