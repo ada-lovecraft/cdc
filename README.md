@@ -21,7 +21,7 @@ This is a small module that runs it's own API server. The data set is a cleaned 
 
 1. Clone the repo
 
-		$ git clone http://github.com/codevinsky/cdc.git
+		$ git clone https://github.com/codevinsky/cdc.git
 		
 2. Install node modules
 
