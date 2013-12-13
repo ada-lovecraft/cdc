@@ -27,7 +27,6 @@
     "jade-angularjs-brunch": "0.0.5",
     "express": "~3.4.4",
     "express.io": "~1.1.13",
-    "lodash": "~2.4.1",
-    "dirty": "~0.9.7"
+    "lodash": "~2.4.1"
   }
 }
