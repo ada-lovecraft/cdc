@@ -1,0 +1,69 @@
+div(ng-controller="MainController")
+	header.page-header.fixed
+		h1 United States Cancer Statistics (USCS)
+
+		.well
+			.page-heading
+				h4 Top Ten Cancers of: 
+					select(ng-model="cdc.year", ng-change="updateData()", ng-options="year for year in app.referenceData.years") 
+			p
+				.btn-group.btn-group
+					button.btn.btn-default(type="button", ng-model="cdc.eventType", btn-radio="'i'") Incidence Rates
+					button.btn.btn-default(type="button", ng-model="cdc.eventType", btn-radio="'m'") Morality Rates
+				.btn-group.btn-group
+					button.btn.btn-info(type="button", ng-model="cdc.sex", btn-radio="'m'") Male
+					button.btn.btn-info(type="button", ng-model="cdc.sex", btn-radio="'f'") Female
+					button.btn.btn-info(type="button", ng-model="cdc.sex", btn-radio="'both'") Both
+			p
+				button.btn.btn-link(ng-repeat="(race,raceName) in app.referenceData.races", type="button", ng-click="app.scrollTo(race)") {{raceName}}
+
+				
+	
+				
+
+	.row(ng-repeat="(race, raceName) in app.referenceData.races")
+		a.anchor(id="{{race}}")
+		.col-md-12
+			.panel.panel-default
+				.panel-heading.clearfix
+					.panel-title
+						h5.pull-left Top 10 Cancer Sites: {{cdc.year}}, {{app.referenceData.sexes[cdc.sex]}} - {{raceName}}
+
+						h5.pull-right
+							small  Rates per 100,000
+				.panel-body
+					.row
+						.col-md-12
+							strong {{app.referenceData.eventTypes[cdc.eventType]}} Rates
+					.row
+						.col-md-12
+							d3-bars(data="cdc.data[cdc.eventType][cdc.sex][race]", margin="0")
+					.row
+						button.btn.btn-link(type="button", ng-click="app.scrollTo('table-display')") View Tabular Data
+						button.btn.btn-link(type="button", ng-click="app.scrollTo('top')") Back to Top
+						
+
+					
+
+	.row
+		a.anchor#table-display
+		.col-md-12
+			.panel.panel-default
+				.panel-heading.clearfix
+					.panel-title
+						h5.pull-left Top 10 Cancer Sites: {{cdc.year}}, {{app.referenceData.sexes[cdc.sex]}}
+						h5.pull-right
+							small  Rates per 100,000
+				table.table.table-condensed.table-bordered.table-hover
+					thead
+						tr
+							th 
+							th(ng-repeat="race in app.referenceData.races") {{race}}
+					tbody
+						tr(ng-repeat="row in cdc.data[cdc.eventType][cdc.sex].all track by $index")
+							td {{$index + 1}}
+							td(ng-repeat="(race, value) in app.referenceData.races") 
+								p {{cdc.data[cdc.eventType][cdc.sex][race][$parent.$index].site}} 
+								p {{cdc.data[cdc.eventType][cdc.sex][race][$parent.$index].rate}}
+
+
