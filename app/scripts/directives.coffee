@@ -17,12 +17,13 @@ directives.directive 'd3Bars', ($window,$timeout, $log) ->
                 $window.onresize = ->
                         scope.$apply()
 
-                
+                # watch for value change on scope.data
                 scope.$watch('data', (newVal, oldVal) ->
                         scope.render(newVal)
                 , true)
 
 
+                # watch for window resize and re-render
                 scope.$watch ->
                         return angular.element($window)[0].innerWidth
                 , -> 

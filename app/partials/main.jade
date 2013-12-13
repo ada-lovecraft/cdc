@@ -8,8 +8,8 @@ div(ng-controller="MainController")
 					select(ng-model="cdc.year", ng-change="updateData()", ng-options="year for year in app.referenceData.years") 
 			p
 				.btn-group.btn-group
-					button.btn.btn-default(type="button", ng-model="cdc.eventType", btn-radio="'i'") Incidence Rates
-					button.btn.btn-default(type="button", ng-model="cdc.eventType", btn-radio="'m'") Morality Rates
+					button.btn.btn-warning(type="button", ng-model="cdc.eventType", btn-radio="'i'") Incidence Rates
+					button.btn.btn-warning(type="button", ng-model="cdc.eventType", btn-radio="'m'") Morality Rates
 				.btn-group.btn-group
 					button.btn.btn-info(type="button", ng-model="cdc.sex", btn-radio="'m'") Male
 					button.btn.btn-info(type="button", ng-model="cdc.sex", btn-radio="'f'") Female
